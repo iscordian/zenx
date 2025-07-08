@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // For testing on your mobile device, replace 'localhost' with your computer's 
     // local IP address (e.g., 'http://192.168.1.5:3000/api/chat').
     // =================================================================================
-    const backendUrl = 'https://zenx-backend.onrender.com/api/chat'; 
+    const backendUrl = 'https://zenx-backend.vercel.app/api/chat'; 
 
     // --- 3. Initialization ---
     function initializeApp() {
