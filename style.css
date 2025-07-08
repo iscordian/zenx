@@ -1,0 +1,142 @@
+/* Zenx AI Chat - Custom Stylesheet */
+
+/* --- Google Font (Optional, but recommended for better typography) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Sidebar Styling --- */
+/* Default expanded width for desktop */
+#sidebar {
+    width: 280px; 
+}
+
+/* When sidebar is an overlay on mobile, it takes up most of the screen */
+@media (max-width: 767px) {
+    #sidebar.is-open {
+        width: 85%;
+        max-width: 320px;
+    }
+}
+
+
+#sidebar.collapsed {
+    width: 80px; /* Collapsed width on desktop */
+}
+
+#sidebar.collapsed .sidebar-text {
+    display: none; /* Hide text when collapsed on desktop */
+}
+
+#sidebar.collapsed #sidebar-toggle i {
+    transform: rotate(180deg); /* Flip arrow icon on desktop */
+}
+
+/* --- Dynamic Textarea Height --- */
+#userInput {
+    max-height: 200px; /* Maximum height before scrolling */
+    scrollbar-width: none; /* Firefox */
+}
+#userInput::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+/* --- Chat Message Bubbles --- */
+.message-bubble {
+    max-width: 85%; /* Slightly larger max-width for mobile */
+    padding: 12px 16px;
+    border-radius: 20px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+@media (min-width: 768px) {
+    .message-bubble {
+        max-width: 75%; /* Revert to original on larger screens */
+    }
+}
+
+
+.user-message {
+    background-color: #8855ed; /* Purple */
+    color: white;
+    border-bottom-right-radius: 5px;
+    align-self: flex-end;
+}
+
+.ai-message {
+    background-color: #e5e7eb; /* Light Gray */
+    color: #1f2937; /* Dark Gray Text */
+    border-bottom-left-radius: 5px;
+    align-self: flex-start;
+}
+
+.dark .ai-message {
+    background-color: #374151; /* Darker Gray */
+    color: #f3f4f6; /* Light Gray Text */
+}
+
+.message-bubble .message-content p {
+    margin-bottom: 0.5rem;
+}
+
+.message-bubble .message-content pre {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* --- Typing Indicator --- */
+.typing-indicator span {
+    height: 10px;
+    width: 10px;
+    background-color: #9ca3af;
+    border-radius: 50%;
+    display: inline-block;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-of-type(1) {
+    animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-of-type(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1.0);
+    }
+}
+
+/* --- Welcome Modal Animation --- */
+#welcomeModal.visible .transform {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* --- Custom Scrollbar --- */
+#chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 4px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}
